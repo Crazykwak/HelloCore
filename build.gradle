@@ -8,12 +8,28 @@ group = 'hello'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
+//롬복 설정 추가
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+//롬복 설정  추가 끝
+
 repositories {
 	mavenCentral()
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
+
+	//롬복 라이브러리 추가
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
